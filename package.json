@@ -1,0 +1,37 @@
+{
+  "name": "coffee_es_webpack_mocha",
+  "version": "1.0.0",
+  "description": "Coffeescript ecmascript webpack and mocha NOT working happily together",
+  "main": "index.js",
+  "scripts": {
+    "test": "mochapack \"src/**/*.test.*\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tonyxyz/coffee_es_webpack_mocha.git"
+  },
+  "keywords": [],
+  "author": "Tony Green",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tonyxyz/coffee_es_webpack_mocha/issues"
+  },
+  "homepage": "https://github.com/tonyxyz/coffee_es_webpack_mocha#readme",
+  "devDependencies": {
+    "@babel/core": "^7.7.0",
+    "@babel/preset-env": "^7.7.1",
+    "babel-loader": "^8.0.6",
+    "chai": "^4.2.0",
+    "chai-as-promised": "^7.1.1",
+    "coffee-loader": "^0.9.0",
+    "mocha": "^6.2.2",
+    "mochapack": "^1.1.5",
+    "webpack": "^4.41.2",
+    "webpack-cli": "^3.3.10",
+    "webpack-node-externals": "^1.7.2"
+  },
+  "dependencies": {
+    "animejs": "^3.1.0",
+    "coffeescript": "^2.4.1"
+  }
+}
