@@ -1,13 +1,18 @@
 # coffee_es_webpack_mocha
 
-Coffeescript ecmascript webpack and mocha NOT working happily together
+Coffeescript, ecmascript, webpack and mocha working happily together
 
-This is an example project demonstrating a configuration problem I am currently having getting
+This is an example project demonstrating a configuration problem I was having getting
 webpack, mocha, mochapack and coffeescript working happing together.
+
+The problem was fairly simple to fix. I'll leave this here on the off chance it points
+someone else in the right direction.
+
+## Original Problem Description
 
 The file something.coffee imports animejs.  It doesn't do anything with it but that's not the problem.
 
-The anime object is created an exported in perfectly normal es6 syntax, the problem appears to be that the
+The anime object is created and exported in perfectly normal es6 syntax, the problem appears to be that the
 configuration as it stands is attempting to load the file as legacy es5.
 
 ```
@@ -19,6 +24,19 @@ export default anime;
 ```
 
 If we delete the import line in something.coffee the test passes as expected.
+
+### The Problem And The Fix
+
+The problem was that for some historical reason I had kept this line
+
+```
+externals: [nodeExternals()],
+```
+
+in my webpack.config.js . This meant that the animejs modules was never loaded through webpack and instead
+mocha tried loading it at run time, and without a runtime loader was expecting to see es5.
+
+The fixed code is on a branch called fixed, and the original broken code is on master.
 
 ## Build And Run
 
